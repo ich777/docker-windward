@@ -21,14 +21,16 @@ if [ ! -f ${DATA_DIR}/Windward/ServerConfig/admin.txt ]; then
     touch ${DATA_DIR}/Windward/ServerConfig/admin.txt
 fi
 
-CUR_ADMINS="$(cat ${DATA_DIR}/Windward/ServerConfig/admin.txt)"
+if [ ! -z "$ADMIN" ]; then
+    CUR_ADMINS="$(cat ${DATA_DIR}/Windward/ServerConfig/admin.txt)"
 
-if grep -q "$ADMIN" <<< "$CUR_ADMINS"; then
-	echo "---Admin with SteamID: $ADMIN found! Nothing to do, continuing!---"
-else
-	echo "---Adding SteamID: $ADMIN to 'admin.txt'---"
-	echo "$ADMIN" >> ${DATA_DIR}/Windward/ServerConfig/admin.txt
-	sleep 4
+    if grep -q "$ADMIN" <<< "$CUR_ADMINS"; then
+    	echo "---Admin with SteamID: $ADMIN found! Nothing to do, continuing!---"
+    else
+    	echo "---Adding SteamID: $ADMIN to 'admin.txt'---"
+    	echo "$ADMIN" >> ${DATA_DIR}/Windward/ServerConfig/admin.txt
+    	sleep 4
+    fi
 fi
 
 echo "---Checking for old logs---"
