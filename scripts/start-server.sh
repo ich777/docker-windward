@@ -27,7 +27,7 @@ if grep -q "$ADMIN" <<< "$CUR_ADMINS"; then
 	echo "---Admin with SteamID: $ADMIN found! Nothing to do, continuing!---"
 else
 	echo "---Adding SteamID: $ADMIN to 'admin.txt'---"
-	screen -d -m /opt/scripts/create-admin.sh
+	echo "$ADMIN" >> ${DATA_DIR}/Windward/ServerConfig/admin.txt
 	sleep 4
 fi
 
