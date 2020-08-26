@@ -7,7 +7,8 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/*
 
 ENV DATA_DIR="/windward"
-ENV GAME_PARAMS="template"
+ENV GAME_PARAMS="-name "Docker Windward" -world "World" -tcp 5127 -public"
+ENV ADMIN=""
 ENV UMASK=000
 ENV UID=99
 ENV GID=100
