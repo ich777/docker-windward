@@ -17,7 +17,7 @@ echo "---Preparing Server---"
 if [ ! -d ${DATA_DIR}/Windward/ServerConfig ]; then
     mkdir -p ${DATA_DIR}/Windward/ServerConfig
 fi
-if [ ! -f ${DATA_DIR}/Windward/ServerConfig/admin.txt ];
+if [ ! -f ${DATA_DIR}/Windward/ServerConfig/admin.txt ]; then
     touch ${DATA_DIR}/Windward/ServerConfig/admin.txt
 fi
 
