@@ -20,7 +20,7 @@ chown -R ${UID}:${GID} /opt/scripts
 chown -R ${UID}:${GID} ${DATA_DIR}
 
 term_handler() {
-	kill -SIGTERM "$killpid"
+	kill -SIGTERM "$(pidof mono)"
 	wait "$killpid" -f 2>/dev/null
 	exit 143;
 }
