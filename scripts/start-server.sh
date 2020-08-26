@@ -1,5 +1,6 @@
 #!/bin/bash
 if [ ! -f ${DATA_DIR}/WWServer.exe ]; then
+    cd ${DATA_DIR}
     echo "---'Windward.exe' not found, downloading!---"
     if wget -q -nc --user-agent="Mozilla" --show-progress --progress=bar:force:noscroll -O ${DATA_DIR}/WWServer.zip http://www.tasharen.com/windward/WWServer.zip ; then
         echo "---Sucessfully downloaded Windward---"
@@ -10,6 +11,7 @@ if [ ! -f ${DATA_DIR}/WWServer.exe ]; then
     unzip -o ${DATA_DIR}/WWServer.zip
     rm ${DATA_DIR}/WWServer.zip
 elif [ "$FORCE_UPDATE" == "true" ]; then
+    cd ${DATA_DIR}
     echo "---Forcing update! Don't forget to turn off this option if the server updated successfully---"
     if [ -f ${DATA_DIR}/WWServer.exe ]; then
         rm ${DATA_DIR}/WWServer.exe
