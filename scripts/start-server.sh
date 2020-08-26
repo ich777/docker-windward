@@ -9,6 +9,19 @@ if [ ! -f ${DATA_DIR}/WWServer.exe ]; then
     fi
     unzip -o ${DATA_DIR}/WWServer.zip
     rm ${DATA_DIR}/WWServer.zip
+elif [ "$FORCE_UPDATE" == "true" ]; then
+    echo "---Forcing update! Don't forget to turn off this option if the server updated successfully---"
+    if [ -f ${DATA_DIR}/WWServer.exe ]; then
+        rm ${DATA_DIR}/WWServer.exe
+    fi
+    if wget -q -nc --user-agent="Mozilla" --show-progress --progress=bar:force:noscroll -O ${DATA_DIR}/WWServer.zip http://www.tasharen.com/windward/WWServer.zip ; then
+        echo "---Sucessfully downloaded Windward---"
+    else
+        echo "---Something went wrong, can't download Windward, putting container in sleep mode---"
+        sleep infinity
+    fi
+    unzip -o ${DATA_DIR}/WWServer.zip
+    rm ${DATA_DIR}/WWServer.zip
 else
     echo "---'Windward.exe' found, continuing!---"
 fi
