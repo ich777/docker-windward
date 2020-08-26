@@ -41,4 +41,4 @@ cd ${DATA_DIR}
 screen -S Windward -L -Logfile ${DATA_DIR}/masterLog.0 -d -m mono ${DATA_DIR}/WWServer.exe ${GAME_PARAMS}
 sleep 2
 screen -S watchdog -d -m /opt/scripts/start-watchdog.sh
-tail -f ${SERVER_DIR}/masterLog.0
+tail -f ${DATA_DIR}/masterLog.0
