@@ -7,7 +7,7 @@ if [ ! -f ${DATA_DIR}/WWServer.exe ]; then
         echo "---Something went wrong, can't download Windward, putting container in sleep mode---"
         sleep infinity
     fi
-    unzip ${DATA_DIR}/WWServer.zip
+    unzip -o ${DATA_DIR}/WWServer.zip
     rm ${DATA_DIR}/WWServer.zip
 else
     echo "---'Windward.exe' found, continuing!---"
